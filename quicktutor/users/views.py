@@ -8,5 +8,5 @@ class HomepageView(generic.CreateView):
     model = Homepage
     #form_class = HomepageForm
     template_name = 'users/homepage.html'
-    fields = ['name', 'location', 'subject', 'course', 'number', 'length', 'description']
+    fields = ['name', 'location', 'subject', 'courseNumber', 'time', 'description']
     #success_url = 'myapp/success.html'
