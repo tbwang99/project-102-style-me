@@ -139,4 +139,4 @@ AUTHENTICATION_BACKENDS = {
 SITE_ID = 1
 
 # TEMPORARY: redirects user back to the homepage after logging in with google
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/users/homepage/'
