@@ -10,7 +10,7 @@ SUBJECT_CHOICES = (
     ('Subject','SUBJECT'),
     ('APMA', 'Math'),
     ('CS', 'Computer Science'),
-    ('GCOM', 'Business'),
+    ('COMM', 'Business'),
     ('BIOL', 'Biology'),
     ('CHEM', 'Chemistry'),
 )
