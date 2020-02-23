@@ -10,3 +10,6 @@ class HomepageView(generic.CreateView):
     template_name = 'users/homepage.html'
     fields = ['name', 'location', 'subject', 'courseNumber', 'time', 'description']
     #success_url = 'myapp/success.html'
+class requestListView(generic.ListView):
+    model = Homepage
+    template_name = 'users/requestList.html'
