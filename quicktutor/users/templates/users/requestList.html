@@ -18,8 +18,8 @@
 		}
 	</style>
 	<center>
+	<p>NAME | LOCATION | SUBJECT</p>
 	{% for homepage in object_list %}
-        <p>NAME | LOCATION | SUBJECT</p>
         <li>{{ homepage.name }} | {{ homepage.location}} | {{ homepage.subject}}</li>
     {% endfor %}
 </body>
