@@ -1,0 +1,39 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}">
+<div id="header" class="header">
+	<div class="row">
+		<div class="col-lg-6 col-md-6">
+			<center>
+		<h1>Requests</h1>
+				<p>This website is a list of student requests</p></center>
+		</div>
+	</div>
+</div>
+<hr>
+<body>
+	<style>
+		body{
+		background-color: #33ACFF
+		}
+	</style>
+	<center>
+	{% for homepage in object_list %}
+        <p>NAME | LOCATION | SUBJECT</p>
+        <li>{{ homepage.name }} | {{ homepage.location}} | {{ homepage.subject}}</li>
+    {% endfor %}
+</body>
+</center>
+<hr>
+<div class="container">
+	<footer>
+		<center>
+		<p>
+			Copyright 2020, Style Group
+		</p>
+		<p>
+			Footer made on 2020-02-22 11:46
+		</p>
+		</center>
+	</footer>
+</div>
