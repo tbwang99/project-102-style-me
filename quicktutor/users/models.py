@@ -5,6 +5,9 @@ from django.db import models
 from django.urls import reverse
 from django.forms import ModelForm
 
+from django.contrib.auth.models import User
+from django.db.models.signals import post_save
+
 # Create your models here.
 SUBJECT_CHOICES = (
     ('Subject','SUBJECT'),
@@ -37,3 +40,21 @@ class Homepage(models.Model):
 
     def get_absolute_url(self):
         return reverse('users:homepage')
+
+class UserProfile(models.Model):
+    user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
+    #user = models.ForeignKey(User, on_delete = models.CASCADE)
+    year = models.CharField(max_length=100, default='')
+    major = models.CharField(max_length=100, default='')
+    description = models.TextField(blank=True)
+    image = models.ImageField(upload_to='profile_image', blank=True)
+
+    def __str__(self):
+        return self.user.username
+
+def create_user_profile(sender, instance, created, **kwargs):
+    if created:
+        UserProfile.objects.create(user=instance)
+
+def save_user_profile(sender, instance, **kwargs):
+    instance.profile.save()
