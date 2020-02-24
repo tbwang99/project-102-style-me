@@ -76,3 +76,6 @@ def edit_profile(request):
 #         args = {'form': form}
 #         return render(request, 'users/change_password.html', args)
 
+class requestListView(generic.ListView):
+    model = Homepage
+    template_name = 'users/requestList.html'
