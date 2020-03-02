@@ -25,8 +25,7 @@ SECRET_KEY = 'u_&-lt!u#td1m-4ui!djyo^l+g+=emw!63vay_be@j7^ct1ajc'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['quicktutor-style-me.herokuapp.com', 'quicktutor-style.herokuapp.com']
 
 # Application definition
 
