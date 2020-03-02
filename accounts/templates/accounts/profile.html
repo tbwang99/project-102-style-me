@@ -1,5 +1,11 @@
 {% extends 'base.html' %}
 
+{% load bootstrap4 %}
+
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+
+{% bootstrap_messages %}
 
 {% block head %}
 <title>Profile</title>
@@ -8,16 +14,14 @@
 {% block body %}
 <div class="container">
     <h1>Profile</h1>
-    <p>Username: {{ user }}</p>
-    <p>First name: {{ user.first_name }}</p>
-    <p>Last name: {{ user.last_name }}</p>
+    <h3>Student</h3>
+    <br>
+    <p>Name: {{ user.first_name }} {{ user.last_name }}</p>
     <p>Year: {{ user.userprofile.year }}</p>
     <p>Major: {{ user.userprofile.major }}</p>
     <p>About: {{ user.userprofile.description }}</p>
-    {% if user.userprofile.image %}
-    <img src="{{ user.userprofile.image.url }}" width="240">
-    {% endif %}
-    <a href="{% url 'users:edit_profile'%}">Edit Profile</a>
+    <br>
+    <a href="{% url 'accounts:edit_profile'%}">Edit Profile</a>
 </div>
 
 {% endblock %}

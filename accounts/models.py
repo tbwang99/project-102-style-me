@@ -39,13 +39,13 @@ class Homepage(models.Model):
         return self.location
 
     def get_absolute_url(self):
-        return reverse('users:homepage')
+        return reverse('accounts:homepage')
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
     #user = models.ForeignKey(User, on_delete = models.CASCADE)
-    year = models.CharField(max_length=100, default='')
-    major = models.CharField(max_length=100, default='')
+    year = models.CharField(max_length=100, blank=True)
+    major = models.CharField(max_length=100, blank=True)
     description = models.TextField(blank=True)
 
     def __str__(self):

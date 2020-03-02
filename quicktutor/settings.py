@@ -25,7 +25,7 @@ SECRET_KEY = 'u_&-lt!u#td1m-4ui!djyo^l+g+=emw!63vay_be@j7^ct1ajc'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['quicktutor-style-me.herokuapp.com', 'quicktutor-style.herokuapp.com']
+ALLOWED_HOSTS = ['localhost', 'quicktutor-style-me.herokuapp.com', 'quicktutor-style.herokuapp.com']
 
 # Application definition
 
@@ -38,13 +38,18 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'users',
+    'accounts',
 
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
+    
+    'bootstrap4',
+    'crispy_forms'
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -138,4 +143,4 @@ AUTHENTICATION_BACKENDS = {
 SITE_ID = 1
 
 # TEMPORARY: redirects user back to the homepage after logging in with google
-LOGIN_REDIRECT_URL = '/users/homepage/'
+LOGIN_REDIRECT_URL = '/accounts/homepage/'

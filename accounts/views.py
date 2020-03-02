@@ -16,7 +16,7 @@ from django.contrib.auth.decorators import login_required
 class HomepageView(generic.CreateView):
     model = Homepage
     #form_class = HomepageForm
-    template_name = 'users/homepage.html'
+    template_name = 'accounts/homepage.html'
     fields = ['name', 'location', 'subject', 'courseNumber', 'time', 'description']
     #success_url = 'myapp/success.html'
 
@@ -25,12 +25,12 @@ class HomepageView(generic.CreateView):
 #         form = RegistrationForm(request.POST)
 #         if form.is_valid():
 #             form.save()
-#             return redirect(reverse('users:home'))
+#             return redirect(reverse('accounts:home'))
 #     else:
 #         form = RegistrationForm()
 
 #         args = {'form': form}
-#         return render(request, 'users/reg_form.html', args)
+#         return render(request, 'accounts/reg_form.html', args)
 
 def view_profile(request, pk=None):
     if pk:
@@ -38,7 +38,7 @@ def view_profile(request, pk=None):
     else:
         user = request.user
     args = {'user': user}
-    return render(request, 'users/profile.html', args)
+    return render(request, 'accounts/profile.html')
 
 def edit_profile(request):
     try:
@@ -51,31 +51,13 @@ def edit_profile(request):
         if user_form.is_valid() and info_form.is_valid():
             user_form.save()
             info_form.save()
-            return redirect(reverse('users:view_profile'))
+            return redirect(reverse('accounts:view_profile'))
     else:
         user_form = EditProfileForm(instance=request.user)
         info_form = MoreUserInfo(instance=request.user)
         # args = {'form': form}
-        return render(request, 'users/edit_profile.html', {'user_form': user_form,'info_form':info_form})
-
-
-
-# def change_password(request):
-#     if request.method == 'POST':
-#         form = PasswordChangeForm(data=request.POST, user=request.user)
-
-#         if form.is_valid():
-#             form.save()
-#             update_session_auth_hash(request, form.user)
-#             return redirect(reverse('users:view_profile'))
-#         else:
-#             return redirect(reverse('users:change_password'))
-#     else:
-#         form = PasswordChangeForm(user=request.user)
-
-#         args = {'form': form}
-#         return render(request, 'users/change_password.html', args)
+        return render(request, 'accounts/edit_profile.html', {'user_form': user_form,'info_form':info_form})
 
 class requestListView(generic.ListView):
     model = Homepage
-    template_name = 'users/requestList.html'
+    template_name = 'accounts/requestList.html'

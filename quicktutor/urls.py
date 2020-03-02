@@ -19,8 +19,8 @@ from django.views.generic import TemplateView
 
 urlpatterns = [
     # change the path of the google login page to be something other than the homepage
-    path('', TemplateView.as_view(template_name = "users/google_login.html")),
-    path('users/', include('users.urls')),
+    path('', TemplateView.as_view(template_name = "accounts/google_login.html")),
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
+    path('accounts/', include('accounts.urls')),
 ]

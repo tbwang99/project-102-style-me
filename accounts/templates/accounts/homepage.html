@@ -1,3 +1,5 @@
+{% load crispy_forms_tags %}
+
 <div id="header" class="header">
 	<div class="row">
 		<div class="col-lg-6 col-md-6">
@@ -15,7 +17,8 @@
 </style>
 <center>
 <form action="" method="post">{% csrf_token %}
-    {{ form.as_p }}
+	{{ form|crispy }}
+	<br>
     <input type="submit" value="Request" />
 </form>
 </center>

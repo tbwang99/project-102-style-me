@@ -1,5 +1,12 @@
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
 
+{% load bootstrap4 %}
+
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+
+{% bootstrap_messages %}
 
 {% block head %}
 <title>Profile</title>
@@ -8,10 +15,13 @@
 {% block body %}
 <div class="container">
     <h1>Edit Profile</h1>
+    <h3>Student</h3>
+    <br>
     <form method="post">
         {% csrf_token %}
-        {{ user_form.as_p }}
-        {{ info_form.as_p }}
+        {{ user_form|crispy}}
+        {{ info_form|crispy }}
+        <br>
         <button type="submit">Submit</button>
     </form>
     <br>
