@@ -47,7 +47,6 @@ class UserProfile(models.Model):
     year = models.CharField(max_length=100, default='')
     major = models.CharField(max_length=100, default='')
     description = models.TextField(blank=True)
-    image = models.ImageField(upload_to='profile_image', blank=True)
 
     def __str__(self):
         return self.user.username
